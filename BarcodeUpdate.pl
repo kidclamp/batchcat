@@ -54,7 +54,7 @@ open my $Error,'>', $barcfile.'-Err.txt' or die $1;
 for (my $i=0;($i<$pairslen);$i=$i+2){
     my $testISBN=Business::ISBN->new($pairs[$i]);
     if (! defined $testISBN){
-        print $Error $pairs[$i],$pairs[$i+1];
+        print $Error $pairs[$i],"\n",$pairs[$i+1],"\n";
         next;
     }
     if (uc(substr($pairs[$i+1],0,5)) ne '3VTKI'){ print $pairs[$i],$pairs[$i+1]; die "File Error";}
